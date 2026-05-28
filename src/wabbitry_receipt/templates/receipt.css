@@ -1,2 +1,185 @@
 /* Wascally Wabbitry receipt stylesheet */
-/* TODO: implement styles */
+
+@page {
+    size: letter;
+    margin: 0.6in 0.75in;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    color: #1a1a1a;
+    line-height: 1.4;
+}
+
+/* Business header */
+
+.business-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #2c5530;
+    margin-bottom: 16px;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+}
+
+.business-info h1 {
+    font-size: 18pt;
+    color: #2c5530;
+    margin-bottom: 2px;
+}
+
+.business-info p {
+    font-size: 9pt;
+    color: #555;
+}
+
+/* Sale info */
+
+.sale-info {
+    margin-bottom: 16px;
+}
+
+.sale-info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.sale-info-table th {
+    text-align: left;
+    font-weight: 600;
+    color: #555;
+    padding-right: 8px;
+    width: 70px;
+}
+
+.sale-info-table td {
+    padding-right: 24px;
+}
+
+/* Line items */
+
+.line-item {
+    margin-bottom: 14px;
+}
+
+.line-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 6px;
+}
+
+.line-item-type {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #2c5530;
+}
+
+.line-item-price {
+    font-size: 11pt;
+    font-weight: 600;
+}
+
+.line-item-desc {
+    font-size: 8.5pt;
+    color: #666;
+    margin-bottom: 6px;
+    font-style: italic;
+}
+
+/* Rabbits table */
+
+.rabbits-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+}
+
+.rabbits-table th {
+    text-align: left;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+    padding: 3px 6px;
+}
+
+.rabbits-table td {
+    padding: 4px 6px;
+    border-bottom: 1px solid #eee;
+}
+
+.breed {
+    font-weight: 500;
+}
+
+.parentage {
+    font-size: 8.5pt;
+    color: #444;
+}
+
+.marking-area {
+    width: 70px;
+    min-height: 16px;
+    border-bottom: 1px dotted #bbb;
+}
+
+/* Total */
+
+.total-section {
+    margin-top: 16px;
+    border-top: 2px solid #2c5530;
+    padding-top: 8px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 16px;
+}
+
+.total-label {
+    font-size: 12pt;
+    font-weight: 600;
+    color: #2c5530;
+}
+
+.total-amount {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* Notes */
+
+.notes {
+    margin-top: 16px;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+}
+
+.notes h2 {
+    font-size: 9pt;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.notes p {
+    font-size: 9pt;
+    color: #444;
+}

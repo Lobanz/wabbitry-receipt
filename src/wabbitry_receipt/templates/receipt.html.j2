@@ -1,12 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Wascally Wabbitry — Sale Receipt</title>
-    <link rel="stylesheet" href="receipt.css">
-</head>
-<body>
-    <!-- TODO: implement receipt template -->
-    <p>Placeholder — not yet implemented.</p>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Wascally Wabbitry — Sale Receipt</title>
+        <link rel="stylesheet" href="receipt.css">
+    </head>
+    <body>
+        <header class="business-header">
+            <img src="logo.png"
+                 alt="Wascally Wabbitry"
+                 class="logo"
+                 width="80"
+                 height="80">
+            <div class="business-info">
+                <h1>Wascally Wabbitry</h1>
+                <p>Hazel Green, AL</p>
+            </div>
+        </header>
+        <section class="sale-info">
+            <table class="sale-info-table">
+                <tr>
+                    <th>Customer:</th>
+                    <td>{{ sale.customer_name }}</td>
+                    <th>Date:</th>
+                    <td>{{ sale.sale_date.strftime("%B %d, %Y") }}</td>
+                </tr>
+                <tr>
+                    <th>Contact:</th>
+                    <td>{{ sale.customer_contact }}</td>
+                    <th>Pickup:</th>
+                    <td>{{ sale.pickup.strftime("%B %d, %Y") }}</td>
+                </tr>
+            </table>
+        </section>
+        {% for item in sale.line_items %}
+            <section class="line-item">
+                <div class="line-item-header">
+                    <span class="line-item-type">{{ item.type.value | title }}</span>
+                    <span class="line-item-price">${{ "%.2f" | format(item.price) }}</span>
+                </div>
+                {% if item.desc %}<div class="line-item-desc">{{ item.desc }}</div>{% endif %}
+                <table class="rabbits-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Gender</th>
+                            <th>Breed</th>
+                            <th>DOB</th>
+                            <th>Sire</th>
+                            <th>Dam</th>
+                            <th>Marking</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rabbit in item.rabbits %}
+                            <tr class="rabbit-row">
+                                <td>{{ loop.index }}</td>
+                                <td>{{ "Buck" if rabbit.gender == "M" else "Doe" }}</td>
+                                <td class="breed">{{ rabbit.breed }}</td>
+                                <td>{{ rabbit.dob.strftime("%Y-%m-%d") }}</td>
+                                <td class="parentage">{{ rabbit.sire.name }} ({{ rabbit.sire.breed }})</td>
+                                <td class="parentage">{{ rabbit.dam.name }} ({{ rabbit.dam.breed }})</td>
+                                <td class="marking-area"></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        {% endfor %}
+        <section class="total-section">
+            <div class="total-row">
+                <span class="total-label">Total:</span>
+                <span class="total-amount">${{ "%.2f" | format(sale.total) }}</span>
+            </div>
+        </section>
+        {% if sale.notes %}
+            <section class="notes">
+                <h2>Notes</h2>
+                <p>{{ sale.notes }}</p>
+            </section>
+        {% endif %}
+    </body>
 </html>

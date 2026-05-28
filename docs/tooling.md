@@ -89,6 +89,24 @@ Test framework.
 
 **Config:** `pyproject.toml [tool.pytest.ini_options]`
 
+### djLint
+
+HTML template linter and formatter for Jinja2, Django, Nunjucks, and other
+template languages. Catches structural HTML errors, attribute quoting,
+nesting issues.
+
+**What it does for us:**
+
+- **Lint** (`djlint --lint`) — catches HTML structure errors in `.html.j2` templates
+- **Format** (`djlint --reformat`) — enforces consistent indentation and attribute style
+- `--profile jinja` enables Jinja2-specific rules
+
+**Config:** `pyproject.toml [tool.djlint]`
+
+**Why:** ESL has no HTML/template language module. djLint fills that gap as
+project-level tooling. Catches real issues (unclosed tags, missing attributes)
+that ruff and mypy can't see.
+
 ## Git Hooks (pre-commit)
 
 Pre-commit hooks run automatically before every commit. They prevent bad code from
@@ -117,6 +135,15 @@ Enforces conventional commit format: `type(scope): subject`
 **Why:** consistent commit messages enable automated changelogs, semantic versioning,
 and clean `git log` output. Types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`,
 `style`, `perf`, `ci`, `build`, `revert`.
+
+### djLint (HTML template linting)
+
+Lints Jinja2 HTML templates for structural errors, attribute quoting, nesting.
+Runs with `--profile jinja` for Jinja2-specific rules.
+
+**Why:** Catches HTML issues in templates that Python linters can't see — unclosed
+tags, missing attributes, invalid nesting. Configured via `pyproject.toml [tool.djlint]`
+with H030/H031 suppressed (meta description/keywords irrelevant for PDF templates).
 
 ## Shell Scripts
 

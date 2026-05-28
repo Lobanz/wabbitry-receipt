@@ -19,6 +19,7 @@ dev = [
     "mypy>=1.10",
     "pytest>=8.0",
     "pytest-cov>=5.0",
+    "djlint>=1.36",
 ]
 
 [project.scripts]
@@ -40,3 +41,8 @@ plugins = ["pydantic.mypy"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.djlint]
+profile = "jinja"
+ignore = "H030,H031"
+
