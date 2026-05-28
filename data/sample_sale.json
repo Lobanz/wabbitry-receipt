@@ -1,0 +1,73 @@
+{
+  "customer_name": "Jamie Wilson",
+  "customer_contact": "256-555-0142",
+  "sale_date": "2026-05-28",
+  "pickup": "2026-05-30",
+  "line_items": [
+    {
+      "type": "trio",
+      "price": 120.00,
+      "desc": "",
+      "rabbits": [
+        {
+          "gender": "M",
+          "breed": "TAMUK NZW",
+          "dob": "2026-03-25",
+          "sire": {"name": "Xander", "breed": "TAMUK NZW"},
+          "dam": {"name": "Harmony", "breed": "TAMUK NZW"}
+        },
+        {
+          "gender": "F",
+          "breed": "M70 NZW",
+          "dob": "2026-03-25",
+          "sire": {"name": "Yaz", "breed": "M70 NZW"},
+          "dam": {"name": "Betty", "breed": "M70 NZW"}
+        },
+        {
+          "gender": "F",
+          "breed": "M70 NZW",
+          "dob": "2026-03-25",
+          "sire": {"name": "Yaz", "breed": "M70 NZW"},
+          "dam": {"name": "Daisy", "breed": "M70 NZW"}
+        }
+      ]
+    },
+    {
+      "type": "pair",
+      "price": 100.00,
+      "desc": "",
+      "rabbits": [
+        {
+          "gender": "M",
+          "breed": "M70 NZW",
+          "dob": "2026-03-25",
+          "sire": {"name": "Zeek", "breed": "M70 NZW"},
+          "dam": {"name": "Abigail", "breed": "M70 NZW"}
+        },
+        {
+          "gender": "F",
+          "breed": "TAMUK NZW",
+          "dob": "2026-03-25",
+          "sire": {"name": "Willy", "breed": "TAMUK NZW"},
+          "dam": {"name": "Fiona", "breed": "TAMUK NZW"}
+        }
+      ]
+    },
+    {
+      "type": "single",
+      "price": 20.00,
+      "desc": "50% discount — breeder clearance",
+      "rabbits": [
+        {
+          "gender": "M",
+          "breed": "TAMUK NZW",
+          "dob": "2025-06-15",
+          "sire": {"name": "Xander", "breed": "TAMUK NZW"},
+          "dam": {"name": "Ester", "breed": "TAMUK NZW"}
+        }
+      ]
+    }
+  ],
+  "total": 240.00,
+  "notes": "Mixed strain trio selected so buck can breed either doe."
+}
