@@ -2,7 +2,6 @@
   "customer_name": "Jamie Wilson",
   "customer_contact": "256-555-0142",
   "sale_date": "2026-05-28",
-  "pickup": "2026-05-30",
   "line_items": [
     {
       "type": "trio",

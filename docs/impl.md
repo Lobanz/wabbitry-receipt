@@ -128,7 +128,6 @@ class Sale(BaseModel):
     customer_name: str
     customer_contact: str
     sale_date: date
-    pickup: date
     line_items: list[LineItem]
     total: float = Field(ge=0)
     notes: str = ""
@@ -197,7 +196,7 @@ linting.
 ### Template structure (per design.md section 7)
 
 1. Business header — logo, "Wascally Wabbitry", contact, Hazel Green AL
-2. Sale info — customer name, contact, sale date, pickup date
+2. Sale info — customer name, contact, sale date
 3. Line items — each with type, price, rabbits (breed, gender, DOB, sire, dam, marking area)
 4. Total
 5. Notes (optional)

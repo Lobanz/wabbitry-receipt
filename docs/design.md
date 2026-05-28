@@ -217,7 +217,7 @@ The receipt is a single fixed-width page; responsive layouts are unnecessary.
 
 1. **Business header** — logo, business name, contact info, address
    (Hazel Green, AL).
-2. **Sale info** — customer name, contact info, sale date, pickup date.
+2. **Sale info** — customer name, contact info, sale date.
 3. **Line items** — each line item (trio/pair/single) with its rabbits.
    Each rabbit shows: breed, gender, DOB, sire (name + breed), dam
    (name + breed). A small blank marking area per rabbit for handwriting

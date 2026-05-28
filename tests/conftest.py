@@ -46,7 +46,6 @@ def sample_sale(sample_rabbit: Rabbit) -> Sale:
         customer_name="Casey Takacs",
         customer_contact="706-669-6616",
         sale_date=date(2026, 5, 28),
-        pickup=date(2026, 5, 30),
         line_items=[
             LineItem(
                 type=LineItemType.TRIO,

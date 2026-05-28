@@ -26,7 +26,6 @@ sources exist:
   "customer_name": "Casey Takacs",
   "customer_contact": "706-669-6616",
   "sale_date": "2026-05-28",
-  "pickup": "2026-05-30",
   "line_items": [
     {
       "type": "trio",
@@ -82,7 +81,7 @@ sale.json is self-contained.
 - **`breed`** is one combined field: "M70 NZW", "TAMUK NZW", "TAMUK Composite".
   Never split into separate strain/breed fields.
 - **`gender`** is "M" or "F".
-- **`dob`** and **`pickup`** are ISO 8601 dates (YYYY-MM-DD).
+- **`dob`** is an ISO 8601 date (YYYY-MM-DD).
 - **`sire`/`dam`** each have `name` and `breed`. These are the rabbit's parents.
 - **`type`** is a LineItemType enum: "trio", "pair", "single".
   - trio = 1 buck + 2 does (3 rabbits)

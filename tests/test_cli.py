@@ -20,7 +20,6 @@ def _minimal_sale_dict(**overrides: object) -> dict[str, object]:
         "customer_name": "Test Customer",
         "customer_contact": "555-0100",
         "sale_date": "2026-05-28",
-        "pickup": "2026-05-30",
         "line_items": [
             {
                 "type": "trio",

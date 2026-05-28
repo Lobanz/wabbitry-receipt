@@ -2,7 +2,7 @@
 
 @page {
     size: letter;
-    margin: 0.6in 0.75in;
+    margin: 0.5in;
 }
 
 * {
@@ -51,21 +51,15 @@ body {
     margin-bottom: 16px;
 }
 
-.sale-info-table {
-    width: 100%;
-    border-collapse: collapse;
+.sale-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
 }
 
-.sale-info-table th {
-    text-align: left;
-    font-weight: 600;
+.sale-row strong {
     color: #555;
-    padding-right: 8px;
-    width: 70px;
-}
-
-.sale-info-table td {
-    padding-right: 24px;
+    font-weight: 600;
 }
 
 /* Line items */
@@ -97,8 +91,12 @@ body {
 .line-item-desc {
     font-size: 8.5pt;
     color: #666;
-    margin-bottom: 6px;
     font-style: italic;
+    margin-left: 0;
+}
+
+.line-item-desc::before {
+    content: " — ";
 }
 
 /* Rabbits table */
@@ -106,7 +104,7 @@ body {
 .rabbits-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 9pt;
+    font-size: 10pt;
 }
 
 .rabbits-table th {
@@ -127,7 +125,7 @@ body {
 }
 
 .parentage {
-    font-size: 8.5pt;
+    font-size: 9.5pt;
     color: #444;
 }
 
@@ -156,6 +154,7 @@ body {
     font-size: 12pt;
     font-weight: 600;
     color: #2c5530;
+    text-transform: uppercase;
 }
 
 .total-amount {
@@ -164,22 +163,25 @@ body {
     color: #1a1a1a;
 }
 
-/* Notes */
+/* Handwriting notes */
 
-.notes {
+.hand-notes {
     margin-top: 16px;
-    padding-top: 8px;
-    border-top: 1px solid #ddd;
 }
 
-.notes h2 {
-    font-size: 9pt;
+.hand-notes h2 {
+    font-size: 11pt;
     font-weight: 600;
     color: #555;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 }
 
-.notes p {
-    font-size: 9pt;
+.hand-notes-line {
+    border-bottom: 1px solid #ddd;
+    height: 24pt;
+}
+
+.hand-notes-pre {
+    font-size: 10pt;
     color: #444;
 }

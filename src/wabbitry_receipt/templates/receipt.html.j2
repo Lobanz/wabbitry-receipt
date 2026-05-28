@@ -15,32 +15,43 @@
             <div class="business-info">
                 <h1>Wascally Wabbitry</h1>
                 <p>Hazel Green, AL</p>
-                <p>(256) 701-4664 &middot; wabbitry@protonmail.com</p>
+                <p>Mike: (256) 701-4664 &middot; wabbitry@protonmail.com</p>
             </div>
         </header>
         <section class="sale-info">
-            <table class="sale-info-table">
-                <tr>
-                    <th>Customer:</th>
-                    <td>{{ sale.customer_name }}</td>
-                    <th>Date:</th>
-                    <td>{{ sale.sale_date.strftime("%B %d, %Y") }}</td>
-                </tr>
-                <tr>
-                    <th>Contact:</th>
-                    <td>{{ sale.customer_contact }}</td>
-                    <th>Pickup:</th>
-                    <td>{{ sale.pickup.strftime("%B %d, %Y") }}</td>
-                </tr>
-            </table>
+            <div class="sale-row">
+                <span><strong>Customer:</strong> {{ sale.customer_name }}</span>
+                <span><strong>Date:</strong> {{ sale.sale_date.strftime("%B %d, %Y") }}</span>
+            </div>
+            <div class="sale-row">
+                <span><strong>Contact:</strong> {{ sale.customer_contact }}</span>
+                <span></span>
+            </div>
         </section>
         {% for item in sale.line_items %}
             <section class="line-item">
                 <div class="line-item-header">
-                    <span class="line-item-type">{{ item.type.value | title }}</span>
+                    <span class="line-item-type">
+                        {{- item.type.value | title -}}
+                        {%- if item.desc and item.desc not in ["MIXED", "PURE"] %}
+                            <span class="line-item-desc">{{ item.desc }}</span>
+                        {%- else %}
+                            {%- set strain_info = namespace(first_breed="", label="") %}
+                            {%- for rabbit in item.rabbits %}
+                                {%- if loop.first %}
+                                    {%- set strain_info.first_breed = rabbit.breed %}
+                                {%- elif rabbit.breed != strain_info.first_breed %}
+                                    {%- set strain_info.label = strain_info.first_breed ~ " x " ~ rabbit.breed %}
+                                {%- endif %}
+                            {%- endfor %}
+                            {%- if not strain_info.label %}
+                                {%- set strain_info.label = strain_info.first_breed %}
+                            {%- endif %}
+                            <span class="line-item-desc">{{ strain_info.label }}</span>
+                        {%- endif %}
+                    </span>
                     <span class="line-item-price">${{ "%.2f" | format(item.price) }}</span>
                 </div>
-                {% if item.desc %}<div class="line-item-desc">{{ item.desc }}</div>{% endif %}
                 <table class="rabbits-table">
                     <thead>
                         <tr>
@@ -75,11 +86,11 @@
                 <span class="total-amount">${{ "%.2f" | format(sale.total) }}</span>
             </div>
         </section>
-        {% if sale.notes %}
-            <section class="notes">
-                <h2>Notes</h2>
-                <p>{{ sale.notes }}</p>
-            </section>
-        {% endif %}
+        <section class="hand-notes">
+            <h2>Notes</h2>
+            <div class="hand-notes-line">{% if sale.notes %}<span class="hand-notes-pre">{{ sale.notes }}</span>{% endif %}</div>
+            <div class="hand-notes-line"></div>
+            <div class="hand-notes-line"></div>
+        </section>
     </body>
 </html>

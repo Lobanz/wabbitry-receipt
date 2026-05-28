@@ -37,7 +37,6 @@ def sample_sale_with_notes() -> Sale:
         customer_name="Jamie Wilson",
         customer_contact="256-555-1234",
         sale_date=date(2026, 5, 28),
-        pickup=date(2026, 5, 30),
         line_items=[
             LineItem(
                 type=LineItemType.TRIO,
@@ -119,9 +118,9 @@ def test_rendered_html_contains_notes_when_present(
 
 
 def test_rendered_html_omits_notes_when_empty(sample_sale: Sale, template_dir: Path) -> None:
-    """No notes section when notes field is empty (default)."""
+    """No prepopulated notes text when notes field is empty (default)."""
     html = render_html(sample_sale, template_dir)
-    assert "Notes" not in html
+    assert 'class="hand-notes-pre"' not in html
 
 
 def test_render_pdf_produces_nonempty_bytes(

@@ -19,7 +19,6 @@ def _minimal_sale_json(**overrides: Any) -> str:
         "customer_name": "Test",
         "customer_contact": "555-0100",
         "sale_date": "2026-05-28",
-        "pickup": "2026-05-30",
         "line_items": [],
         "total": 0,
     }
@@ -158,7 +157,6 @@ def test_sale_model_dump_roundtrip() -> None:
         customer_name="Test User",
         customer_contact="555-0100",
         sale_date=date(2026, 5, 28),
-        pickup=date(2026, 5, 30),
         line_items=[],
         total=0,
     )

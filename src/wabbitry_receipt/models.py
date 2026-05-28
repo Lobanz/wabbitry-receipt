@@ -54,7 +54,6 @@ class Sale(BaseModel):
     customer_name: str
     customer_contact: str
     sale_date: date
-    pickup: date
     line_items: list[LineItem]
     total: float = Field(ge=0)
     notes: str = ""
