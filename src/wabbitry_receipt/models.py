@@ -2,31 +2,44 @@
 
 from dataclasses import dataclass
 from datetime import date
+from enum import StrEnum
+
+
+class LineItemType(StrEnum):
+    """Type of line item on a sale."""
+
+    TRIO = "trio"
+    PAIR = "pair"
+    SINGLE = "single"
+
+
+@dataclass(frozen=True)
+class Parent:
+    """A rabbit's parent (sire or dam)."""
+
+    name: str
+    breed: str
 
 
 @dataclass(frozen=True)
 class Rabbit:
-    """A rabbit for sale, with lineage and breed info."""
+    """A rabbit for sale, with lineage info."""
 
-    name: str
-    strain: str
-    breed: str
     gender: str
+    breed: str
     dob: date
-    sire_name: str
-    sire_strain: str
-    sire_breed: str
-    dam_name: str
-    dam_strain: str
-    dam_breed: str
+    sire: Parent
+    dam: Parent
 
 
 @dataclass(frozen=True)
-class SaleLineItem:
-    """A single rabbit line item on a sale."""
+class LineItem:
+    """A line item on a sale (trio, pair, or single)."""
 
-    rabbit: Rabbit
-    unit_price: float
+    type: LineItemType
+    price: float
+    rabbits: list[Rabbit]
+    desc: str | None = None
 
 
 @dataclass(frozen=True)
@@ -36,5 +49,7 @@ class Sale:
     customer_name: str
     customer_contact: str
     sale_date: date
-    pickup: str
-    line_items: list[SaleLineItem]
+    pickup: date
+    line_items: list[LineItem]
+    total: float
+    notes: str = ""
