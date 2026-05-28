@@ -3,7 +3,7 @@
 from wabbitry_receipt.cli import main
 
 
-def test_cli_no_args(capsys) -> None:
+def test_cli_no_args(capsys: object) -> None:
     try:
         main([])
     except SystemExit as e:

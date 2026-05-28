@@ -1,8 +1,9 @@
 """Data models for wabbitry-receipt."""
 
-from dataclasses import dataclass
 from datetime import date
 from enum import StrEnum
+
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class LineItemType(StrEnum):
@@ -13,17 +14,19 @@ class LineItemType(StrEnum):
     SINGLE = "single"
 
 
-@dataclass(frozen=True)
-class Parent:
+class Parent(BaseModel):
     """A rabbit's parent (sire or dam)."""
+
+    model_config = ConfigDict(frozen=True)
 
     name: str
     breed: str
 
 
-@dataclass(frozen=True)
-class Rabbit:
+class Rabbit(BaseModel):
     """A rabbit for sale, with lineage info."""
+
+    model_config = ConfigDict(frozen=True)
 
     gender: str
     breed: str
@@ -32,24 +35,26 @@ class Rabbit:
     dam: Parent
 
 
-@dataclass(frozen=True)
-class LineItem:
+class LineItem(BaseModel):
     """A line item on a sale (trio, pair, or single)."""
 
+    model_config = ConfigDict(frozen=True)
+
     type: LineItemType
-    price: float
+    price: float = Field(gt=0)
     rabbits: list[Rabbit]
     desc: str | None = None
 
 
-@dataclass(frozen=True)
-class Sale:
+class Sale(BaseModel):
     """A complete sale transaction."""
+
+    model_config = ConfigDict(frozen=True)
 
     customer_name: str
     customer_contact: str
     sale_date: date
     pickup: date
     line_items: list[LineItem]
-    total: float
+    total: float = Field(ge=0)
     notes: str = ""
