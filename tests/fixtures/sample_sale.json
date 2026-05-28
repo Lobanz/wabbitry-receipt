@@ -1,0 +1,35 @@
+{
+  "customer_name": "Casey Takacs",
+  "customer_contact": "706-669-6616",
+  "sale_date": "2026-05-28",
+  "pickup": "fri lunch",
+  "rabbits": [
+    {
+      "name": "Kit 1",
+      "strain": "TAMUK",
+      "breed": "NZW",
+      "gender": "M",
+      "dob": "2026-03-25",
+      "sire": {"name": "Xander", "strain": "TAMUK", "breed": "NZW"},
+      "dam": {"name": "Harmony", "strain": "TAMUK", "breed": "NZW"}
+    },
+    {
+      "name": "Kit 9",
+      "strain": "TAMUK",
+      "breed": "NZW",
+      "gender": "F",
+      "dob": "2026-03-25",
+      "sire": {"name": "Willy", "strain": "TAMUK", "breed": "NZW"},
+      "dam": {"name": "Fiona", "strain": "TAMUK", "breed": "NZW"}
+    },
+    {
+      "name": "Kit 10",
+      "strain": "TAMUK",
+      "breed": "NZW",
+      "gender": "F",
+      "dob": "2026-03-25",
+      "sire": {"name": "Willy", "strain": "TAMUK", "breed": "NZW"},
+      "dam": {"name": "Fiona", "strain": "TAMUK", "breed": "NZW"}
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+[
+  {
+    "name": "Abigail",
+    "breed": "M70 NZW",
+    "gender": "F",
+    "siblings": [
+      "Betsy"
+    ]
+  },
+  {
+    "name": "Amber",
+    "breed": "M70 NZW",
+    "gender": "F",
+    "siblings": [
+      "Abigail"
+    ]
+  },
+  {
+    "name": "Betsy",
+    "breed": "M70 NZW",
+    "gender": "F",
+    "siblings": [
+      "Abigail"
+    ]
+  },
+  {
+    "name": "Betty",
+    "breed": "M70 NZW",
+    "gender": "F",
+    "siblings": [
+      "Betsy"
+    ]
+  },
+  {
+    "name": "Charlotte",
+    "breed": "M70 NZW",
+    "gender": "F",
+    "siblings": [
+      "Daisy"
+    ]
+  },
+  {
+    "name": "Daisy",
+    "breed": "M70 NZW",
+    "gender": "F",
+    "siblings": [
+      "Charlotte"
+    ]
+  },
+  {
+    "name": "Ester",
+    "breed": "TAMUK NZW",
+    "gender": "F",
+    "siblings": []
+  },
+  {
+    "name": "Fiona",
+    "breed": "TAMUK NZW",
+    "gender": "F",
+    "siblings": [
+      "Ester"
+    ]
+  },
+  {
+    "name": "Florence",
+    "breed": "TAMUK NZW",
+    "gender": "F",
+    "siblings": []
+  },
+  {
+    "name": "Ginseng",
+    "breed": "TAMUK NZW",
+    "gender": "F",
+    "siblings": [
+      "Harmony"
+    ]
+  },
+  {
+    "name": "Harmony",
+    "breed": "TAMUK NZW",
+    "gender": "F",
+    "siblings": [
+      "Ginseng"
+    ]
+  },
+  {
+    "name": "Isabelle",
+    "breed": "TAMUK NZW",
+    "gender": "F",
+    "siblings": []
+  },
+  {
+    "name": "Zeek",
+    "breed": "M70 NZW",
+    "gender": "M",
+    "siblings": []
+  },
+  {
+    "name": "Yaz",
+    "breed": "M70 NZW",
+    "gender": "M",
+    "siblings": []
+  },
+  {
+    "name": "Xander",
+    "breed": "TAMUK NZW",
+    "gender": "M",
+    "siblings": []
+  },
+  {
+    "name": "Willy",
+    "breed": "TAMUK NZW",
+    "gender": "M",
+    "siblings": []
+  },
+  {
+    "name": "Vincent",
+    "breed": "TAMUK Composite",
+    "gender": "M",
+    "siblings": []
+  },
+  {
+    "name": "Vader",
+    "breed": "TAMUK NZW",
+    "gender": "M",
+    "siblings": [
+      "Willy"
+    ]
+  },
+  {
+    "name": "Iris",
+    "breed": "TAMUK NZW",
+    "gender": "F",
+    "siblings": [
+      "Harmony"
+    ]
+  },
+  {
+    "name": "Jade",
+    "breed": "TAMUK NZW",
+    "gender": "F",
+    "siblings": [
+      "Harmony"
+    ]
+  },
+  {
+    "name": "Kiki",
+    "breed": "M70 NZW",
+    "gender": "F",
+    "siblings": [
+      "Maxine",
+      "Betsy"
+    ]
+  },
+  {
+    "name": "Lily",
+    "breed": "M70 NZW",
+    "gender": "F",
+    "siblings": [
+      "Kiki",
+      "Maxine",
+      "Betsy"
+    ]
+  },
+  {
+    "name": "Maxine",
+    "breed": "M70 NZW",
+    "gender": "F",
+    "siblings": [
+      "Kiki",
+      "Lily",
+      "Betsy"
+    ]
+  },
+  {
+    "name": "Opal",
+    "breed": "M70 NZW",
+    "gender": "F",
+    "siblings": [
+      "Kiki",
+      "Lily",
+      "Betsy"
+    ]
+  }
+]

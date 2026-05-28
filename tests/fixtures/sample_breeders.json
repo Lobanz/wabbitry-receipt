@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Xander",
+    "breed": "TAMUK NZW",
+    "gender": "M",
+    "siblings": []
+  },
+  {
+    "name": "Harmony",
+    "breed": "TAMUK NZW",
+    "gender": "F",
+    "siblings": ["Ginseng"]
+  },
+  {
+    "name": "Willy",
+    "breed": "TAMUK NZW",
+    "gender": "M",
+    "siblings": []
+  },
+  {
+    "name": "Fiona",
+    "breed": "TAMUK NZW",
+    "gender": "F",
+    "siblings": ["Ester"]
+  }
+]
