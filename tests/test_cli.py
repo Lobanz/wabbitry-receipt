@@ -205,3 +205,21 @@ def test_generate_exits_with_error_on_invalid_json(tmp_path: Path) -> None:
     bad_path.write_text('{"customer_name": 123}', encoding="utf-8")
     with pytest.raises(SystemExit, match="1"):
         main(["generate", str(bad_path)])
+
+
+def test_generate_exits_with_error_on_directory(tmp_path: Path) -> None:
+    """Exit code 1 when the path is a directory, not a file."""
+    with pytest.raises(SystemExit, match="1"):
+        main(["generate", str(tmp_path)])
+
+
+def test_generate_exits_with_error_on_unreadable_file(tmp_path: Path) -> None:
+    """Exit code 1 when the file exists but is unreadable."""
+    unreadable = tmp_path / "locked.json"
+    unreadable.write_text('{}', encoding="utf-8")
+    unreadable.chmod(0o000)
+    try:
+        with pytest.raises(SystemExit, match="1"):
+            main(["generate", str(unreadable)])
+    finally:
+        unreadable.chmod(0o644)

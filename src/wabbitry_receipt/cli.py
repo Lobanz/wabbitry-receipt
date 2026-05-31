@@ -119,9 +119,9 @@ def _cmd_generate(
     # 1. Load and validate sale JSON.
     try:
         raw = sale_json.read_text(encoding="utf-8")
-    except FileNotFoundError:
-        logger.error("sale JSON not found: %s", sale_json)
-        print(f"Error: file not found: {sale_json}", file=sys.stderr)
+    except (FileNotFoundError, IsADirectoryError, PermissionError) as exc:
+        logger.error("cannot read sale JSON: %s — %s", sale_json, exc.__class__.__name__)
+        print(f"Error: cannot read file: {sale_json}", file=sys.stderr)
         sys.exit(1)
         return  # REASON: unreachable, but satisfies type checker
 
