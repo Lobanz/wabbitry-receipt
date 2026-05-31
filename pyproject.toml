@@ -4,6 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "wabbitry-receipt"
+dynamic = ["version"]
 description = "Sales receipt generator for Wascally Wabbitry"
 requires-python = ">=3.11"
 dependencies = [
