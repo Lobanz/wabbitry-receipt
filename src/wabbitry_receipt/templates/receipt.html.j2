@@ -33,22 +33,7 @@
                 <div class="line-item-header">
                     <span class="line-item-type">
                         {{- item.type.value | title -}}
-                        {%- if item.desc and item.desc not in ["MIXED", "PURE"] %}
-                            <span class="line-item-desc">{{ item.desc }}</span>
-                        {%- else %}
-                            {%- set strain_info = namespace(first_breed="", label="") %}
-                            {%- for rabbit in item.rabbits %}
-                                {%- if loop.first %}
-                                    {%- set strain_info.first_breed = rabbit.breed %}
-                                {%- elif rabbit.breed != strain_info.first_breed %}
-                                    {%- set strain_info.label = strain_info.first_breed ~ " x " ~ rabbit.breed %}
-                                {%- endif %}
-                            {%- endfor %}
-                            {%- if not strain_info.label %}
-                                {%- set strain_info.label = strain_info.first_breed %}
-                            {%- endif %}
-                            <span class="line-item-desc">{{ strain_info.label }}</span>
-                        {%- endif %}
+                        <span class="line-item-desc">{{ item.strain_label }}</span>
                     </span>
                     <span class="line-item-price">${{ "%.2f" | format(item.price) }}</span>
                 </div>

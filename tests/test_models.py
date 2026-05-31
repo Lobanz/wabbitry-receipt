@@ -163,3 +163,56 @@ def test_sale_model_dump_roundtrip() -> None:
     dumped = sale.model_dump()
     restored = Sale.model_validate(dumped)
     assert restored == sale
+
+
+# ---------------------------------------------------------------------------
+# strain_label property
+# ---------------------------------------------------------------------------
+
+
+def test_strain_label_uses_desc_override() -> None:
+    """If desc is set and not a sentinel, strain_label returns it."""
+    rabbit = make_sample_rabbit()
+    item = LineItem(type=LineItemType.TRIO, price=120.0, rabbits=[rabbit], desc="red + / black ○")
+    assert item.strain_label == "red + / black ○"
+
+
+def test_strain_label_ignores_mixed_sentinel() -> None:
+    """MIXED sentinel triggers auto-computation."""
+    rabbit = make_sample_rabbit()
+    item = LineItem(type=LineItemType.TRIO, price=120.0, rabbits=[rabbit], desc="MIXED")
+    assert item.strain_label == "TAMUK NZW"
+
+
+def test_strain_label_ignores_pure_sentinel() -> None:
+    """PURE sentinel triggers auto-computation."""
+    rabbit = make_sample_rabbit()
+    item = LineItem(type=LineItemType.TRIO, price=120.0, rabbits=[rabbit], desc="PURE")
+    assert item.strain_label == "TAMUK NZW"
+
+
+def test_strain_label_auto_computes_single_breed() -> None:
+    """Auto-computation for a single breed."""
+    rabbit = make_sample_rabbit()
+    item = LineItem(type=LineItemType.TRIO, price=120.0, rabbits=[rabbit], desc="")
+    assert item.strain_label == "TAMUK NZW"
+
+
+def test_strain_label_auto_computes_mixed_breed() -> None:
+    """Auto-computation for mixed breeds preserves order of first appearance."""
+    buck = make_sample_rabbit()
+    doe = Rabbit(
+        gender="F",
+        breed="M70 NZW",
+        dob=date(2026, 3, 25),
+        sire=Parent(name="Yaz", breed="M70 NZW"),
+        dam=Parent(name="Betty", breed="M70 NZW"),
+    )
+    item = LineItem(type=LineItemType.PAIR, price=80.0, rabbits=[buck, doe])
+    assert item.strain_label == "TAMUK NZW x M70 NZW"
+
+
+def test_strain_label_auto_computes_no_rabbits() -> None:
+    """Edge case: empty rabbit list returns Unknown."""
+    item = LineItem(type=LineItemType.SINGLE, price=50.0, rabbits=[])
+    assert item.strain_label == "Unknown"

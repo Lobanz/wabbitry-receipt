@@ -60,4 +60,4 @@ def render_pdf(html: str, css_path: Path, logo_path: Path) -> bytes:
         raise RuntimeError(msg)
     pdf_bytes = result
     logger.info("rendered PDF (%d bytes)", len(pdf_bytes))
-    return pdf_bytes
+    return pdf_bytes  # type: ignore[no-any-return]
