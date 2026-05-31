@@ -117,6 +117,13 @@ def test_rendered_html_contains_notes_when_present(
     assert "Trio chosen so buck can breed both does." in html
 
 
+def test_rendered_html_contains_generator_version(sample_sale: Sale, template_dir: Path) -> None:
+    """Generator version stamp appears in the footer."""
+    html = render_html(sample_sale, template_dir)
+    assert "Receipt generator v" in html
+    assert 'class="generator-version"' in html
+
+
 def test_rendered_html_omits_notes_when_empty(sample_sale: Sale, template_dir: Path) -> None:
     """No prepopulated notes text when notes field is empty (default)."""
     html = render_html(sample_sale, template_dir)

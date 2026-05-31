@@ -185,3 +185,12 @@ body {
     font-size: 10pt;
     color: #444;
 }
+
+/* Generator version stamp */
+
+.generator-version {
+    margin-top: 8px;
+    text-align: right;
+    font-size: 7pt;
+    color: #999;
+}

@@ -7,6 +7,7 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
 
+from wabbitry_receipt import __version__
 from wabbitry_receipt.models import Sale
 
 logger = logging.getLogger(__name__)
@@ -32,7 +33,7 @@ def render_html(sale: Sale, template_dir: Path) -> str:
         autoescape=True,
     )
     template = env.get_template(TEMPLATE_NAME)
-    html = template.render(sale=sale)
+    html = template.render(sale=sale, generator_version=__version__)
     logger.info("rendered HTML for %s", sale.customer_name)
     return html
 
