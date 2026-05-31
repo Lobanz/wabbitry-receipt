@@ -49,6 +49,8 @@ def render_pdf(html: str, css_path: Path, logo_path: Path) -> bytes:
         PDF file content as bytes.
 
     """
+    # Delay heavy import so CLI --help stays responsive and test collection
+    # doesn't fail if system libraries are missing.
     from weasyprint import CSS, HTML  # type: ignore[import-untyped]  # noqa: PLC0415
 
     base_url = str(logo_path.parent)

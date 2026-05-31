@@ -123,7 +123,6 @@ def _cmd_generate(
         logger.error("cannot read sale JSON: %s — %s", sale_json, exc.__class__.__name__)
         print(f"Error: cannot read file: {sale_json}", file=sys.stderr)
         sys.exit(1)
-        return  # REASON: unreachable, but satisfies type checker
 
     try:
         sale = Sale.model_validate_json(raw)
@@ -131,7 +130,6 @@ def _cmd_generate(
         logger.error("invalid sale JSON: %s", sale_json, exc_info=True)
         print(f"Error: invalid sale JSON: {sale_json}", file=sys.stderr)
         sys.exit(1)
-        return  # REASON: unreachable, but satisfies type checker
 
     # 2. Resolve output path.
     template_dir = _get_template_dir()
@@ -154,7 +152,6 @@ def _cmd_generate(
         logger.error("rendering failed", exc_info=True)
         print("Error: rendering failed — see log for details.", file=sys.stderr)
         sys.exit(1)
-        return  # REASON: unreachable, but satisfies type checker
 
     # 4. Write PDF.
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
