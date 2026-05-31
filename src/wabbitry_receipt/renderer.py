@@ -55,6 +55,9 @@ def render_pdf(html: str, css_path: Path, logo_path: Path) -> bytes:
     result = HTML(string=html, base_url=base_url).write_pdf(
         stylesheets=[CSS(filename=str(css_path))],
     )
-    pdf_bytes = result if result is not None else b""
+    if result is None:
+        msg = "weasyprint write_pdf returned None"
+        raise RuntimeError(msg)
+    pdf_bytes = result
     logger.info("rendered PDF (%d bytes)", len(pdf_bytes))
     return pdf_bytes

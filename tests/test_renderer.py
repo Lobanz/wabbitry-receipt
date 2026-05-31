@@ -148,3 +148,25 @@ def test_render_pdf_contains_expected_content(
     # A real receipt with logo, text, and tables should be well over 10KB.
     # A stub/empty PDF would be under 2KB.
     assert len(pdf) > 10_000, f"PDF suspiciously small ({len(pdf)} bytes)"
+
+
+def test_render_pdf_raises_on_none_result(
+    sample_sale: Sale,
+    template_dir: Path,
+    css_path: Path,
+    logo_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """RuntimeError raised if weasyprint write_pdf returns None."""
+    html = render_html(sample_sale, template_dir)
+
+    class FakeHTML:
+        def __init__(self, *args: object, **kwargs: object) -> None:
+            pass
+
+        def write_pdf(self, **kwargs: object) -> None:
+            return None
+
+    monkeypatch.setattr("weasyprint.HTML", FakeHTML)
+    with pytest.raises(RuntimeError, match="weasyprint write_pdf returned None"):
+        render_pdf(html, css_path, logo_path)
